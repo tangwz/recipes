@@ -75,7 +75,7 @@ int tcp_connect(const char* host, const char* serv)
  * 3、允许接受外部来的连接请求
  * 返回：成功则为已连接套接字描述符， 若出错则不返回
  */
-int tcp_listen(const char *host, const char *serv, socklen_t *addrlenp)
+int tcp_listen(const char *host, const char *serv, socklen_t *addrlen)
 {
   int listenfd, n;
   const int on = 1;
@@ -116,8 +116,8 @@ int tcp_listen(const char *host, const char *serv, socklen_t *addrlenp)
     exit(1);
   }
 
-  if (addrlenp)
-    *addrlenp = res->ai_addrlen;//return size of protocol address
+  if (addrlen)
+    *addrlen = res->ai_addrlen;//return size of protocol address
 
   freeaddrinfo(ressave);
 

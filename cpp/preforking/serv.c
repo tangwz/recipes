@@ -1,4 +1,4 @@
-#include "lib.c"
+#include "lib.h"
 /*
  * 进程池，预先派生子进程（preforking）
  */

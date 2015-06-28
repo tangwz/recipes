@@ -123,3 +123,67 @@ int tcp_listen(const char *host, const char *serv, socklen_t *addrlen)
 
   return listenfd;
 }
+
+
+size_t my_write(int sock_fd, const void *vptr, int n) {
+  size_t left = n;
+  size_t nwritten = 0;
+  const char *p = vptr;
+  while (left > 0) {
+    /* write()：成功时返回写的字节数，错误时返回-1. */
+    if ((nwritten = write(sock_fd, p, left)) <= 0) {
+      /* EINTR : The call was interrupted by a signal before any data was written. */
+      if (n < 0 && errno == EINTR)
+        nwritten = 0;
+      else
+        return -1;
+
+    }
+    left -= nwritten;
+    p += nwritten;
+  }
+  return n;
+}
+
+int my_read(int sock_fd, char *c) {
+  if (read_cnt <= 0) {
+again:
+    if ((read_cnt = read(sock_fd, read_buf, sizeof(read_buf))) < 0) {
+      if (read_cnt < 0 && errno == EINTR)
+        goto again;
+      return -1;
+
+    } else if (read_cnt == 0) {
+      return 0;
+
+    }
+    read_ptr = read_buf;
+  }
+  read_cnt--;
+  *c = *read_ptr++;
+  return 1;
+}
+
+size_t read_line(int sock_fd, char *buf, size_t max) {
+  size_t n, rc;
+  char c;
+  char *p = buf;
+  for (n = 1; n < max; n++) {
+    if ((rc = my_read(sock_fd, &c)) == 1) {
+      *p++ = c;
+      if (c == '\n')
+        break;
+
+    } else if (rc == 0) {
+      *p = '\0';
+      return n - 1;
+
+    } else {
+      return -1;
+    }
+
+  }
+  *p = '\0';
+  return n;
+
+}

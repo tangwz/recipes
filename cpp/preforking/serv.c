@@ -24,9 +24,12 @@ int main(int argc, char **argv)
 	nchildren = atoi(argv[argc-1]);
 	pids = calloc(nchildren, sizeof(pid_t));
 
+	 /* init the file lock */
+	my_lock_init("/tmp/lock.XXXXXX");
+	/* one lock file for all children */
 	for (i = 0; i < nchildren; ++i)
 	{
-		pids[i] = child_make(i, listenfd, addrlen); 
+		pids[i] = child_make(i, listenfd, addrlen); /* parent returns */
 	}
 
 	signal(SIGINT, sig_int);

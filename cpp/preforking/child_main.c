@@ -16,7 +16,10 @@ void child_main(int i, int listenfd, int addrlen)
 
 	while(1){
 		clilen = addrlen;
+
+		my_lock_wait();
 		connfd = accept(listenfd, cliaddr, &clilen);
+		my_lock_release();
 
 		web_child(connfd); /*process the request */
 		close(connfd);

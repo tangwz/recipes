@@ -1,6 +1,9 @@
+#include "lib.h"
+#include <pthread.h>
+
 typedef struct{
 	pid_t child_pid;    /* process ID */
-	int   child_pipfd;  /* parent's stream pipe to/from child */
+	int   child_pipefd; /* parent's stream pipe to/from child */
 	int   child_status; /* 0 = ready */
 	long  child_count;  /* #connections handled */
 }   Child;

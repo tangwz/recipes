@@ -67,6 +67,21 @@ Mutex可以分为递归锁（recursive mutex）和非递归锁（non-recursive m
 **Linux下的pthread_mutex_t锁是默认是非递归的。可以通过设置PTHREAD_MUTEX_RECURSIVE属性，将pthread_mutex_t锁设置为递归锁。**
 
 ## C/C++:
+
+### 开发工具：
+ - 编译器：gcc/g++；
+ - 调试工具：gdb；
+ - 内存泄露检查：valgrind；
+ - 文档组织工具：doxygen；
+
+### 白板编程：
+
+1. 实现STL中的vector，vector容量扩张过程（是否原地扩张）；
+2. 实现STL中的string；
+3. 实现STL中的stack；
+4. *实现其他STL容器，例如map、hash等（概率不大）*；
+4. 灵活应用virtual继承+shared_ptr；
+
 ### C problem 1：
 ```
 #include <stdio.h>

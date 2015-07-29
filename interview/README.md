@@ -40,6 +40,9 @@
 
 **[操作系统相关试题](./OS.md)**
 
+### 资料：
+ - Linux内存管理基本概念：http://vmlinz.is-programmer.com/posts/26540.html
+
 ## 网络编程：
 
 ### TCP/IP基础：
@@ -81,3 +84,12 @@ _如有时间可自己实现一个mini STL_
 4. 灵活应用virtual继承+shared_ptr；
 
 **[C/C++相关试题](./CC.md)**
+
+### 资料：
+- 虚函数原理：http://www.learncpp.com/cpp-tutorial/125-the-virtual-table/
+- this指针原理：http://www.bogotobogo.com/cplusplus/this_pointer.html
+- 类的sizeof：http://blog.csdn.net/pizi0475/article/details/6292556
+- 根据成员变量的指针获取结构体变量的指针：http://en.wikipedia.org/wiki/Offsetof
+- C语言扩展：http://www.kerneltravel.net/newbie/gcc_man.html#5.7
+- C语言常用宏定义：http://www.cnitblog.com/zouzheng/archive/2007/08/31/32691.aspx
+- C中的MIN，MAX宏实现：http://blog.csdn.net/snowbabybw/article/details/6120780

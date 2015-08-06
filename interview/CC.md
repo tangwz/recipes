@@ -145,3 +145,73 @@ D.以上都不对
 A a1; //调用A默认构造函数
 
 a1=10; //类型不匹配，调用构造函数A(int)进行隐式转化，之后将引用传给operator=（）
+
+### C problem 5：
+
+```
+下列代码的输出为：
+class CParent 
+{
+    public: virtual void Intro()
+    {
+        printf( "I'm a Parent, " ); Hobby();
+    }
+    virtual void Hobby()
+    {
+        printf( "I like football!" );
+    }
+}; 
+class CChild : public CParent { 
+    public: virtual void Intro()
+    {
+        printf( "I'm a Child, " ); Hobby();
+    }
+    virtual void Hobby()
+    {
+       printf( "I like basketball!\n" );
+    }
+}; 
+int main( void )
+{
+    CChild *pChild = new CChild(); 
+    CParent *pParent = (CParent *) pChild; 
+    pParent->Intro(); 
+    return(0);
+}
+
+A. I'm a Parent， I like football!
+
+B. I'm a Parent， I like basketball!
+
+C. I'm a Child， I like basketball!
+
+D. I'm a Child， I like football!
+```
+输出：I’m a Child, I like basketball!
+
+这题动态联编，Intro()和Hobby()都是虚函数且通过指针调用，基类指针会向派生类中寻找，找到后执行派生类的函数，所以输出的结果是I’m a Child, I like basketball!
+
+参考：[C++虚函数及虚函数表解析](http://www.cnblogs.com/chinazhangjie/archive/2012/07/11/2586535.html)。
+
+另：(CParent *)这个要不要都没关系的。
+
+### C problem 6：
+```
+下述有关c++的虚类和java接口的描述，说法错误的是？
+A. c++虚类相当与java里面的抽象类
+B. c++中没有接口的概念，与之对应的是纯虚类，对应的是java的借口
+C. 纯虚函数和虚函数的区别在于前者不包含定义，而后者可以包含函数体。
+D. 一个抽象类和接口中的方法必须是抽象方法
+```
+选D.
+
+抽象类 ： 类中至少有一个方法是抽象方法，则该类就是抽象类；
+
+接口 ：类中的方法全部都是抽象方法。
+
+抽象类和接口的其它特点：
+ - 一个子类只能继承一个抽象类（虚类），但能实现多个接口；
+ - 一个抽象类可以有构造方法，接口没有构造方法；
+ - 一个抽象类中的方法不一定是抽象方法，即其中的方法可以有实现（有方法体），接口中的方法都是抽象方法，不能有方法体，只有声明；
+ - 一个抽象类可以是public、private、protected、default，接口只有public;
+ - 一个抽象类中的方法可以是public、private、protected、default，接口中的方法只能是public和default。

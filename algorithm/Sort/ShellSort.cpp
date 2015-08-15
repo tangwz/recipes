@@ -26,6 +26,25 @@ static void shell_insert(elem_t a[], const int start, const int end, const int g
 
 	for(i = start + gap; i < end; ++i){
 		tmp = a[i];
-		for(j = i - gap; )
+		for(j = i - gap; tmp < a[j] && j >= start; j-= gap){
+			a[j + gap] = a[j];
+		}
+		a[j + gap] = tmp;
+	}
+}
+
+/*
+* @brief 希尔排序.
+* @param[inout] a 待排序元素序列
+* @param[in] start 开始位置
+* @param[in] end 结束位置，最后一个元素后一个位置，即左闭右开区间
+* @return 无
+*/
+void shell_sort(elem_t a[], const int start, const int end)
+{
+	int gap = end - start;
+	while(gap > 1){
+		gap = gap / 3 + 1;
+		shell_insert(a, start, end, gap);
 	}
 }

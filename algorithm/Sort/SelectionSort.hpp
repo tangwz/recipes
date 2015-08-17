@@ -1,9 +1,6 @@
 /*
  * Algorithm--SelectionSort：https://en.wikipedia.org/wiki/Selection_sort
  * 
- * Author:       Tangwz
- * Data:         2015/8/14
- * Blog:         tangwz.com
  */
 
 /** 数组元素的类型 */

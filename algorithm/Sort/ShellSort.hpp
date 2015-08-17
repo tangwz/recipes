@@ -1,9 +1,6 @@
 /*
  * Algorithm--ShellSort：https://en.wikipedia.org/wiki/Shellsort
  * 
- * Author:       Tangwz
- * Data:         2015/8/12
- * Blog:         tangwz.com
  */
 
 /** 数组元素的类型 */

@@ -1,9 +1,6 @@
 /*
  * Algorithm--BubbleSort：https://en.wikipedia.org/wiki/Bubble_sort
  * 
- * Author:       Tangwz
- * Data:         2015/8/14
- * Blog:         tangwz.com
  */
 
 /** 数组元素的类型 */

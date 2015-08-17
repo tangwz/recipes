@@ -1,9 +1,6 @@
 /*
  * Algorithm--QuickSort：https://en.wikipedia.org/wiki/Quicksort
  * 
- * Author:       Tangwz
- * Data:         2015/8/12
- * Blog:         tangwz.com
  */
 
 /** 数组元素的类型 */

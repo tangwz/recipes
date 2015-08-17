@@ -1,9 +1,6 @@
 /*
  * Algorithm--InsertionSort：https://en.wikipedia.org/wiki/Insertion_sort
  * 
- * Author:       Tangwz
- * Data:         2015/8/12
- * Blog:         tangwz.com
  */
 
 /** 数组元素的类型 */

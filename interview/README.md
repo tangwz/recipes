@@ -67,6 +67,25 @@
 
 ## C/C++:
 
+### C++ 11的了解：
+ - Lambda：[capture](parameters)->return_type {body}
+ - 可变参数模板（ Variadic templates）：https://www.chenlq.net/books/cpp11-faq/cpp11-faq-chinese-version-series-variadic-templates.html
+ - 自动类型推导 auto：
+ - 自动化推导 decltype：
+ - constexpr：
+ - nullptr：
+ - 智能指针：shared_ptr 、unique_ptr、weak_ptr；
+ - 列表初始化：
+ - 正则表达式：
+ - STL线程库：
+ - 静态断言（static_assert）：断言有一个问题，就是一定会abort，强制整个程序退出而导致调试也无法继续进行。static_assert就是在编译时就能够进行检查的断言。
+ - 委托构造：https://www.chenlq.net/books/cpp11-faq/cpp11-faq-chinese-version-series-delegate-constructors.html
+ - 右值引用和move语义：对某个stirng的右值引用可以单纯地从右值复制其内部C-style的指针到新的string，然后留下空的右值。这个操作不需要内存数组的复制，而且空的暂时对象的析构也不会释放内存。其更有效率。
+
+更多：
+ - (C++ 11 FAQ中文版)[https://www.chenlq.net/cpp11-faq-chs]
+ - (C++ 11 FAQ)[http://www.stroustrup.com/C++11FAQ.html]
+
 ### 开发工具：
  - 编译器：gcc/g++、makefile；
  - 调试工具：gdb；

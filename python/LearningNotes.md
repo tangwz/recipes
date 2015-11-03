@@ -9,3 +9,16 @@ class XXX(XXX):
   def method(...):
     ...
 ```
+
+定制类：
+
+ - __str__
+ - __slots__
+ - __len__
+ - __iter__
+ - __getitem__
+ - __setitem__
+ - __reversed__
+ - __getattr__
+ - __setattr__
+ - __call__

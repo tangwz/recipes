@@ -1,3 +1,4 @@
+```
 from ... import ...
 
 class XXX(XXX):
@@ -7,3 +8,4 @@ class XXX(XXX):
 
   def method(...):
     ...
+```

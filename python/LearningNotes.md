@@ -42,3 +42,6 @@ numpy、pandas
  - __getattr__
  - __setattr__
  - __call__
+
+遇到的问题：
+ - jon的使用：http://jonpy.sourceforge.net/，用来处理CGI

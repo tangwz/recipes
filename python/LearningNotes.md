@@ -34,6 +34,7 @@ numpy、pandas
 
 第三方模块：
  - jon：http://jonpy.sourceforge.net/，用来处理CGI
+ - requests：http://www.python-requests.org/en/latest/，给人类使用的HTTP库！
 
-### flask
- - flask用来做后台，一个坑是request.form和request.json，一个处理表单，一个处理json，为什么坑呢？因为flask在这里会检查HTTP Header中application的类型。需要弄清楚前段发过来的消息格式。
+### Flask
+ - flask用来做后台，一个坑是request.form和request.json，一个处理表单，一个处理json，为什么坑呢？因为flask在这里会检查HTTP Header中application的类型（这个年代还要检查Content-Type）。需要弄清楚前段发过来的消息格式。

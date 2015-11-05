@@ -1,5 +1,6 @@
 ## recipes -- python notes
 ### python
+__python中WSGI的底层原理和作用，和CGI有何关联和区别？__
 
 日常处理需经常用到的模块：
 ```

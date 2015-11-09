@@ -38,4 +38,5 @@ numpy、pandas
  - requests：http://www.python-requests.org/en/latest/，给人类使用的HTTP库！
 
 ### Flask
- - flask用来做后台，一个坑是request.form和request.json，一个处理表单，一个处理json，为什么坑呢？因为flask在这里会检查HTTP Header中application的类型（这个年代还要检查Content-Type）。需要弄清楚前段发过来的消息格式。
+ - flask用来做后台，一个坑是request.form和request.json，一个处理表单，一个处理json，为什么坑呢？因为flask在这里会检查HTTP Header中application的类型（这个年代还要检查Content-Type）。需要弄清楚前段发过来的消息格式，谨慎选择使用。
+ - flask的一些装饰器

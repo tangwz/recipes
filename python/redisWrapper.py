@@ -1,5 +1,6 @@
 """
-    this just a wrapper class of redis.
+    this just a easy wrapper class of redis.
+    version 2.0, by tangwz.
 """
 
 import redis, logging
@@ -13,25 +14,39 @@ class redisWrapper:
         except:
             logging.error('Failed to connect to Redis on %s', host)
 
+    def set_string(self, key, value):
+        try:
+            self.conn.set(key, value)
+        except:
+            logging.error('Set string failed.Establish a valid connection first!')
+
+    def get_string(self, key):
+        try:
+            return self.conn.get(key)
+        except:
+            logging.error('Get string failed.Establish a valid connection first!')
+
+
     def push_list(self, key, value):
+        # push value to the head of  the list
         try:
             self.conn.lpush(key, value)
         except:
-            logging.error('Push failed.Establish a valid connection first!')
+            logging.error('Push list failed.Establish a valid connection first!')
+
+    def get_list(self, key):
+        # input the key, [warning]return all the value!
+        try:
+            return self.conn.lrange(key, start=0, end=self.conn.llen(key))
+        except:
+            logging.error('Get list failed.Establish a valid connection first!')
+            return
 
     def set_expire_time(self, key, seconds):
         try:
             self.conn.expire(key, seconds)
         except:
-            logging.error('Set failed.Establish a valid connection first!')
-
-    def get_value(self, key):
-        # input the key, return all the value
-        try:
-            return self.conn.lrange(key, start=0, end=self.conn.llen(key))
-        except:
-            logging.error('Get failed.Establish a valid connection first!')
-            return
+            logging.error('Set expire time failed.Establish a valid connection first!')
 
     def save_redis(self):
         try:

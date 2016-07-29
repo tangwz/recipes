@@ -14,6 +14,14 @@ class redisWrapper:
         except:
             logging.error('Failed to connect to Redis on %s', host)
 
+    def get_keys(self, pattern='*'):
+        # returns a list of keys matching pattern
+        try:
+            return self.conn.keys(pattern)
+        except:
+            logging.error('Get keys failed.Establish a valid connection first!')
+            return
+
     def set_string(self, key, value):
         try:
             self.conn.set(key, value)
@@ -25,7 +33,7 @@ class redisWrapper:
             return self.conn.get(key)
         except:
             logging.error('Get string failed.Establish a valid connection first!')
-
+            return
 
     def push_list(self, key, value):
         # push value to the head of  the list

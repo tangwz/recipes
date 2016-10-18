@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Untitled Page</title>
+     <script type="text/javascript" src="jquery-1.11.3.min.js"></script>
+     <script type="text/javascript">
+    jQuery(document).ready(function(){
+        $.ajax({
+            type : "get",
+            async: false,
+            url : "http://10.0.9.64:8088/g10?id=ca26vo03208&callback=jsonp",
+            dataType : "jsonp",
+            jsonpCallback:"jsonp",
+            scriptCharset:'UTF-8',
+            success : function(json){
+                console.log(json)
+            },
+            error:function(){
+                alert('fail');
+            }
+        });
+    });
+    </script>
+    </head>
+ <body>
+ </body>
+</html>

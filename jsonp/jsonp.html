@@ -2,13 +2,14 @@
 <html>
 <head>
     <title>Untitled Page</title>
-     <script type="text/javascript" src="jquery-1.11.3.min.js"></script>
-     <script type="text/javascript">
+    <script type="text/javascript" src="jquery-1.11.3.min.js"></script>
+    <script type="text/javascript">
+    var your_jsonp_address = "";
     jQuery(document).ready(function(){
         $.ajax({
             type : "get",
             async: false,
-            url : "http://10.0.9.64:8088/g10?id=ca26vo03208&callback=jsonp",
+            url : your_jsonp_address,
             dataType : "jsonp",
             jsonpCallback:"jsonp",
             scriptCharset:'UTF-8',

@@ -7,7 +7,7 @@ from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 redis = Redis(host='redis', port=6379)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://flask:flask@localhost/flask'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://flask:flask@mysql/flask'
 db = SQLAlchemy(app)
 
 class User(db.Model):
@@ -20,15 +20,19 @@ class User(db.Model):
     def __repr__(self):
         return '<User %r>' % self.username
 
+db.create_all()
+
 @app.route('/')
 def hello():
-    guest = User('guest')
-    db.session.add(guest)
-    db.commit()
     guest = User.query.filter_by(username='guest').first()
+    if not guest:
+        guest = User('guest')
+        db.session.add(guest)
+        db.session.commit()
+        guest = User.query.filter_by(username='guest').first()
 
     redis.incr('hits')
-    return 'Hello %s! I have been seen %s times.' % guest, redis.get('hits')
+    return 'Hello %s! I have been seen %s times.' % (guest, redis.get('hits'))
 
 
 if __name__ == "__main__":

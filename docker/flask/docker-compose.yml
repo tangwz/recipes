@@ -1,0 +1,27 @@
+# Don't use this for production purposes. Docker compose is only for development and staging servers
+version: '2'
+
+services:
+  web:
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/code
+    depends_on:
+      - redis
+      - mysql
+
+  mysql:
+    image: mysql:5.7
+    port:
+      - "5443:3306"
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: flask
+      MYSQL_DATABASE: flask
+      MYSQL_USER: flask
+      MYSQL_PASSWORD: flask
+
+  redis:
+    image: redis

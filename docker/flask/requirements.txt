@@ -1,0 +1,4 @@
+flask
+redis
+mysql-python
+flask-sqlalchemy
